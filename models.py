@@ -6,5 +6,5 @@ class EventCreate(BaseModel):
     name: str
     datetime: datetime
 
-class Event(BaseModel):
+class Event(EventCreate):
     id: UUID

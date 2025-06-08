@@ -13,3 +13,6 @@ def add_event(event_create: EventCreate) -> Event:
     )
     event_store[event_id] = event
     return event
+
+def list_events() -> List[Event]:
+    return list(event_store.values())
