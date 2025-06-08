@@ -4,7 +4,6 @@ from services import add_event, list_events, get_event
 from typing import List
 from apscheduler.schedulers.background import BackgroundScheduler
 from notify import notify_upcoming_events
-from datetime import datetime, timezone
 
 app = FastAPI()
 
