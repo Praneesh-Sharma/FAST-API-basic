@@ -4,6 +4,7 @@ from services import add_event, list_events, get_event
 from typing import List
 from apscheduler.schedulers.background import BackgroundScheduler
 from notify import notify_upcoming_events
+from datetime import datetime, timezone
 
 app = FastAPI()
 
@@ -26,8 +27,9 @@ def fetch_event(event_id: str):
         raise HTTPException(status_code=404, detail="Event not found")
     return event
 
+scheduler = BackgroundScheduler()
+
 @app.on_event("startup")
 def startup_event():
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(notify_upcoming_events, 'interval', minutes=5) #run every 5 minutes
+    scheduler.add_job(notify_upcoming_events, 'interval', minutes=5) #run every 5 minutes from code start
     scheduler.start()
