@@ -1,5 +1,5 @@
 from models import Event, EventCreate
-from typing import List, Dict
+from typing import List, Dict, Optional
 from uuid import uuid4
 
 event_store: Dict[str, Event] = {}
@@ -16,3 +16,6 @@ def add_event(event_create: EventCreate) -> Event:
 
 def list_events() -> List[Event]:
     return list(event_store.values())
+
+def get_event(event_id: str) -> Optional[Event]:
+    return event_store.get(event_id)
