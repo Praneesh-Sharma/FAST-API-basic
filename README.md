@@ -14,6 +14,20 @@ A minimal FastAPI project that allows users to add, list, and fetch events. It a
 - APScheduler
 - Docker
 
+## File Structure
+```
+.
+├── Dockerfile         # Docker setup to containerize the application
+├── README.md          # Project documentation and setup instructions
+├── requirements.txt   # Python dependencies
+├── main.py            # Entry point for the FastAPI app (routes and server)
+├── models.py          # Pydantic models for event data validation
+├── services.py        # Logic for managing and storing event data
+├── notify.py          # Background job to simulate notifications for upcoming events
+├── test.py            # Pytest test cases for all main endpoints
+└── .gitignore         # Files and folders to exclude from version control
+```
+
 ## Getting Started
 
 #### 1. Close the Repository
