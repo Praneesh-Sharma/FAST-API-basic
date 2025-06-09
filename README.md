@@ -45,3 +45,18 @@ pytest test.py
 
 #### Notifications
 Every 5 minutes, the app checks for any events starting within the next 5 minutes. When such an event is found, it logs the event name and time as a notification in the terminal.
+
+
+### If I had more time, I would...
+- Add storage by integrating a Database
+- Add user accounts and authentication
+- Implement logging
+- Deploy on a cloud platform
+- Usage of Background workers
+- Implement more features such as modifying or deleting an event
+
+### If this had to serve 10,000 users a day, what would break?
+- Data loss risk is the app crashes or restarts
+- Latency issues would scale with increase users
+- Would need to a set of background workers to handle these mnay users
+- Lack of logging means getting the app back up would be difficult in case of a crash.
