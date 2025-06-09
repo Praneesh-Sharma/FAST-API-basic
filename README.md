@@ -1,1 +1,47 @@
 # FAST-API-basic
+
+A minimal FastAPI project that allows users to add, list, and fetch events. It also simulates a notification system for events that are about to start within the next 5 minutes.
+
+## Features
+- Add new events ('POST /events')
+- List all events ('GET /events')
+- Retrieve a specific event by ID ('GET /events/{event_id}')
+- Notifications (Displayed on terminal every 5 minutes)
+
+## Stack
+- Python 3.11+
+- Fast API
+- APScheduler
+- Docker
+
+## Getting Started
+
+#### 1. Close the Repository
+```bash
+git clone https://github.com/Praneesh-Sharma/FAST-API-basic.git
+cd FAST-API-basic
+```
+
+#### 2.1 Instal Dependencies (Without Docker)
+```bash
+python -m venv venv
+source venv/bin/activate  # or venv\Scripts\activate on Windows
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+Visit http://localhost:8000/docs
+
+#### 2.2 Running with Docker
+```bash
+docker build -t event-api .
+docker run -p 8000:8000 event-api
+```
+Visit: http://localhost:8000/docs
+
+####  Running Tests
+```bash
+pytest test.py
+```
+
+#### Notifications
+Every 5 minutes, the app checks for any events starting within the next 5 minutes. When such an event is found, it logs the event name and time as a notification in the terminal.
